@@ -1,8 +1,8 @@
 from flask import Flask, json, jsonify, request,Blueprint, current_app as app
-from api.controllers.creditcard_controllers import CardControllers
+from api.controllers.creditcard_controllers import CardController
 
 
-cue=CardControllers()
+cue=CardController()
 @app.route('/')
 @app.route('/index')
 def index():

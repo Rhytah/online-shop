@@ -11,3 +11,12 @@ class DatabaseConnect:
                 host='ec2-174-129-18-247.compute-1.amazonaws.com',
                 port = 5432
               )
+        
+        cmd = """CREATE TABLE IF NOT EXISTS Creditcards(
+            id SERIAL PRIMARY KEY,
+            cardnumber INT,
+            issuedate TIMESTAMP, 
+            expirydate INT, 
+            servicecode INT, 
+            issuingbank VARCHAR (160),
+            issuingagency VARCHAR(160))"""
