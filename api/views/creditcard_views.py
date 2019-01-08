@@ -7,7 +7,26 @@ cue=CardController()
 @app.route('/index')
 def index():
     return "Welcome to online shop"
+    
 
 @app.route('/creditcard', methods = ['POST'])
 def add_creditcarddata():
-    pass
+    return cue.add_card
+@app.route('/creditcard')
+def get_creditcards():
+    return cue.fetch_all_creditcards
+
+@app.route('/creditcard/int:cardnumber')
+def fetchsinglecarddata():
+    return cue.fetch_specific_card
+
+@app.route('/creditcard/int:cardnumber', methods = ['PUT'])
+def update_creditcarddata():
+    return cue.update_card
+
+@app.route('/creditcard/int:cardnumber', methods = ['DELETE'])
+def deletecard():
+    return cue.delete_card
+
+
+
