@@ -1,22 +1,30 @@
 import psycopg2 
+from psycopg2.extras import RealDictCursor
+
 import datetime
 
 
 class DatabaseConnect:
     def __init__(self):
         self.credentials = dict(
-                dbname ='d4l82hlu9p9hci',
-                user = 'ptyunnnqwfcjzy',
-                password='bcc93c197c3ab85bcb3643bb85ae8bcb1fc2ec19c1aab7090e5180a38f285060',
-                host='ec2-174-129-18-247.compute-1.amazonaws.com',
-                port = 5432
-              )
+                    dbname ='d4l82hlu9p9hci',
+                    user = 'ptyunnnqwfcjzy',
+                    password='bcc93c197c3ab85bcb3643bb85ae8bcb1fc2ec19c1aab7090e5180a38f285060',
+                    host='ec2-174-129-18-247.compute-1.amazonaws.com',
+                    port = 5432
+                  )   
+        
+        self.conn = psycopg2.connect(**self.credentials, cursor_factory = RealDictCursor)
+        self.conn.autocommit = True
+        self.cursor=self.conn.cursor()
         
         cmd = """CREATE TABLE IF NOT EXISTS Creditcards(
             id SERIAL PRIMARY KEY,
-            cardnumber INT,
-            issuedate TIMESTAMP, 
-            expirydate INT, 
-            servicecode INT, 
+            cardnumber INT NOT NULL,
+            issuedate TIMESTAMP DEFAULT NOW(), 
+            expirydate INT NOT NULL, 
+            servicecode INT NOT NULL, 
             issuingbank VARCHAR (160),
             issuingagency VARCHAR(160))"""
+
+        self.cursor.execute(cmd)
