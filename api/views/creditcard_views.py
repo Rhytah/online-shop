@@ -23,11 +23,11 @@ def index():
             <br>
             <a href='https://rhytahduka.herokuapp.com/creditcard' method='POST'>Add creditcard data</a>
             <br>
-            <a href='https://rhytahduka.herokuapp.com/creditcard/<int:cardnumber'>Fetch specific single creditcard data</a>
+            <a href='https://rhytahduka.herokuapp.com/creditcard/<int:cardnumber>'>Fetch specific single creditcard data</a>
             <br>
-            <a href='https://rhytahduka.herokuapp.com/creditcard/<int:cardnumber' method='PUT'>Update specific single creditcard data</a>
+            <a href='https://rhytahduka.herokuapp.com/creditcard/<int:cardnumber>' method='PUT'>Update specific single creditcard data</a>
             <br>
-            <a href='https://rhytahduka.herokuapp.com/creditcard/<int:cardnumber' method='DELETE'>delete specific single creditcard data</a>
+            <a href='https://rhytahduka.herokuapp.com/creditcard/<int:cardnumber>' method='DELETE'>delete specific single creditcard data</a>
         </div>
         </body>
         </html>
